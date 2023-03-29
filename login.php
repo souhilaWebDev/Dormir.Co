@@ -57,7 +57,7 @@
                 </div>
               </div>
               <div class="credits">
-                Réaliser par :  <a href="#">Les Perles Du Code</a>
+                Réaliser par :  <a href="#">Les Perles Du Code <i class="bi bi-gem"></i></a>
               </div>
       </section>
     </div>
