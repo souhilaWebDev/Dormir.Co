@@ -5,9 +5,6 @@ require_once('../class/database.php');
 require_once('../class/verification.php');
 
 
-
-if(isset($_POST['submit'])){
- 
 $verif = new Verification();
 // Verifier le nom 
 $verif->Texte($_POST['nom'], 'nom');
@@ -60,11 +57,13 @@ if (count($verif->getArray()) > 0) {
     return header('Location: '.URL.'/?error='.$verif->getIndexError(0).'&nom='.$_POST['nom'].'&prenom='.$_POST['prenom'].'&email='.$_POST['email'].'&telephone='.$_POST['telephone']);
 }
 
-$_SESSION['email'] = $_POST['email'];
+$_SESSION['email']   = $_POST['email'];
+$_SESSION['nom']     = $_POST['nom'];
+$_SESSION['prenom']  = $_POST['prenom'];
 
 header('Location: '.URL.'/search.php');
 
    
-}else{
-    header('Location: '.URL.'/index.php');
-}
+// }else{
+//     header('Location: '.URL.'/index.php');
+// }

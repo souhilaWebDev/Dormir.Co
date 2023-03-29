@@ -5,13 +5,13 @@ require_once('./composant/header.php');
 require_once('./composant/navbar.php');
 require_once('./composant/sidebar.php');
 
-if(!isset($_SESSION['id_user'])) {
+if(!isset($_SESSION['email'])) {
     return header('Location: '.URL.'/login.php?error=Merci de vous connecter');
 }else{
 
     $database = new Database();
     $pdo = $database->connectDb();
-    $result = $database->select($pdo, '*', 'user', ['id_user', $_SESSION['id_user']]);
+    $result = $database->select($pdo, '*', 'user', ['email', $_SESSION['email']]);
     $user = $result->fetch(PDO::FETCH_ASSOC);
 
     // Vérification si l'utilisateur existe
@@ -32,35 +32,49 @@ if(!isset($_SESSION['id_user'])) {
                 <div class="card">
                     <div class="card-body pt-3">
                     <!-- Bordered Tabs -->
+                    <?php 
+                            echo isset($_GET['msg']) ? '
+                            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                            <i class="bi bi-check-circle me-1"></i>
+                              Voici mon message : '.$_GET['msg'].'
+                              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                            </div>': ''; 
+                          ?>
 
                         <div class="tab-pane fade show active profile-overview" id="profile-overview">
-                        
                             <h5 class="card-title">Détails du profil</h5>
-
                             <div class="row">
-                                <div class="col-lg-3 col-md-4 label ">Prénom : </div>
+                                <div class="col-lg-3 col-md-4 label ">
+                                    <i class="bx bxs-contact"></i> Prénom : 
+                                </div>
                                 <div class="col-lg-9 col-md-8"><?=$user['firstname']?></div>
                             </div>
 
                             <div class="row">
-                                <div class="col-lg-3 col-md-4 label">Nom</div>
+                                <div class="col-lg-3 col-md-4 label">
+                                    <i class="bx bxs-contact"></i> Nom :
+                                </div>
                                 <div class="col-lg-9 col-md-8"><?=$user['lastname']?></div>
                             </div>
 
                             <div class="row">
-                                <div class="col-lg-3 col-md-4 label">email</div>
+                                <div class="col-lg-3 col-md-4 label">
+                                    <i class="bx bxs-envelope"></i> email :
+                                </div>
                                 <div class="col-lg-9 col-md-8"><?=$user['email']?></div>
                             </div>
 
-                            
                             <div class="row">
-                                <div class="col-lg-3 col-md-4 label">Téléphone</div>
+                                <div class="col-lg-3 col-md-4 label"> 
+                                <i class="bx bxs-phone"></i> Téléphone :
+                                </div>
                                 <div class="col-lg-9 col-md-8"><?=$user['phone']?></div>
                             </div>
 
-                            
                             <div class="row">
-                                <div class="col-lg-3 col-md-4 label">Date de création</div>
+                                <div class="col-lg-3 col-md-4 label">
+                                    <i class="bx bxs-calendar"></i> Date de création :
+                                </div>
                                 <div class="col-lg-9 col-md-8">
                                     <?=date('d-m-Y', strtotime($user['date_created']))?>
                                 </div>
@@ -68,7 +82,8 @@ if(!isset($_SESSION['id_user'])) {
 
                             
                             <div class="row">
-                                <div class="col-lg-3 col-md-4 label">Date de dernière mise à jour</div>
+                                <div class="col-lg-3 col-md-6 label">
+                                    <i class="bi alarm-fille"></i><i class="bx bxs-calendar"></i> Date de mise à jour :</div>
                                 <div class="col-lg-9 col-md-8">
                                 <?=date('d-m-Y', strtotime($user['date_updated']))?>
                                 </div>
