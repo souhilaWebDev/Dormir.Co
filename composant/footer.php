@@ -6,7 +6,7 @@
       &copy; Copyright <strong><span>Dormir Co </span></strong>.Tous les droits sont réservés
     </div>
     <div class="credits">
-      Réaliser par : <a href="#">Les Perles Du Code</a>
+      Réaliser par : <a href="#">Les Perles Du Code <i class="bi bi-gem"></i></a>
     </div>
   </footer><!-- End Footer -->
 
