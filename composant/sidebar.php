@@ -29,9 +29,9 @@
       
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="pages-faq.html">
+        <a class="nav-link collapsed" href="<?=URL?>/annonce.php">
         <i class="bi bi-card-list"></i>
-          <span>Voire les Annonces</span>
+          <span>Voir les Annonces</span>
         </a>
       </li>
       <li class="nav-item">
