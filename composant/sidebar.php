@@ -29,20 +29,25 @@
       
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="pages-faq.html">
+        <a class="nav-link collapsed" href="<?=URL?>/voir-annonces.php">
         <i class="bi bi-card-list"></i>
           <span>Voire les Annonces</span>
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link collapsed" href="pages-faq.html">
+        <a class="nav-link collapsed" href="<?=URL?>/voir-mes-annonces.php">
         <i class="bi bi-card-checklist"></i>
           <span>Mes Annonces</span>
         </a>
       </li>
-
       <li class="nav-item">
-        <a class="nav-link collapsed" href="pages-faq.html">
+        <a class="nav-link collapsed" href="<?=URL?>/creer-une-annonce.php">
+        <i class="bi bi-card-checklist"></i>
+          <span>Ajouter une Annonce</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="<?=URL?>/voir-mes-favories.php">
           <i class="bi bi-bookmark-star"></i>
           <span>Mes Favoris</span>
         </a>

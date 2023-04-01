@@ -1,14 +1,15 @@
 <?php
+session_start();
+if(!isset($_SESSION['email'])) { // Vérifie si l'utilisateur n'est pas connecté
+    header("Location: login.php?error=Merci de vous connecter ! "); // Redirige l'utilisateur vers login
+    exit;
+}
 require_once 'back-end/config.php';
-require('./class/database.php');
-require_once('./composant/header.php');
-require_once('./composant/navbar.php');
-require_once('./composant/sidebar.php');
-
-if(!isset($_SESSION['email'])) {
-    return header('Location: '.URL.'/login.php?error=Merci de vous connecter');
-}else{
-
+require('class/database.php');
+require_once('composant/header.php');
+require_once('composant/navbar.php');
+require_once('composant/sidebar.php');
+  
     $database = new Database();
     $pdo = $database->connectDb();
     $result = $database->select($pdo, '*', 'user', ['email', $_SESSION['email']]);
@@ -103,5 +104,5 @@ if(!isset($_SESSION['email'])) {
 
 <?php 
 require_once('composant/footer.php');
-}?>
+?>
 

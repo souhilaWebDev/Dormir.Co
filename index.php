@@ -34,7 +34,7 @@
                     echo isset($_GET['error']) ? '
                     <div class="alert alert-danger alert-dismissible fade show" role="alert">
                       <i class="bi bi-exclamation-octagon me-1"></i>
-                      Voici mon erreur! '.$_GET['error'].'
+                     Erreur : ! '.$_GET['error'].'
                       <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                     </div>': ''; 
 
