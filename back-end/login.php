@@ -38,6 +38,6 @@ $_SESSION['nom']     = $result[0]['firstname'];
 $_SESSION['prenom']  = $result[0]['lastname'];
 $_SESSION['email']   = $_POST['email'];
 
-header('Location: '.URL.'/main.php'); 
+header('Location: '.URL.'/search.php'); 
 
 ?>

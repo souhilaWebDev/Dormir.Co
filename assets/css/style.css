@@ -42,7 +42,7 @@ h6 {
 # Main
 --------------------------------------------------------------*/
 #main {
-  margin-top: 12px;
+  margin-top: 63px;
   padding: 20px 30px;
   padding-bottom: 0px;
   transition: all 0.3s;
@@ -371,7 +371,7 @@ h6 {
 }
 
 .logo span {
-  font-size: 30px;
+  font-size: 40px;
   font-weight: 750;
   color: rgb(1 127 181);
   font-family: "Nunito", sans-serif;

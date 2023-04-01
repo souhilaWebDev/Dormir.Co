@@ -25,15 +25,15 @@
               <div class="card mb-3">
 
               <div class="card-body">
-                        <?php 
+                        
+                      <div class="pt-4 pb-2">
+                      <?php 
                             echo isset($_GET['error']) ? '
                             <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                              <i class="bi bi-exclamation-octagon me-1"></i>
-                              Voici mon erreur! '.$_GET['error'].'
+                              <i class="bi bi-exclamation-octagon me-1"></i> '.$_GET['error'].'
                               <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                             </div>': ''; 
                           ?>
-                      <div class="pt-4 pb-2">
                         <h5 class="card-title text-center pb-0 fs-4">Se connecter</h5>
                       </div>
 

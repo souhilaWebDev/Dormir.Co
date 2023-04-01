@@ -1,4 +1,9 @@
 <?php
+session_start();
+if(!isset($_SESSION['email'])) { // Vérifie si l'utilisateur n'est pas connecté
+    header("Location: login.php?error=Merci de vous connecter ! "); // Redirige l'utilisateur vers login
+    exit;
+}
 require_once ('back-end/config.php');
 require_once('./class/database.php');
 require_once('./class/form.php');
@@ -7,7 +12,7 @@ require_once('./composant/navbar.php');
 require_once('./composant/sidebar.php');
 
 if(!isset($_SESSION['email'])) {
-    return header('Location: '.URL.'/login.php?error=Merci de vous connecter');
+    header('Location: '.URL.'/login.php?error=Merci de vous connecter');
 }else{
     $form = new Form();
     $database = new Database();
@@ -33,7 +38,7 @@ if(!isset($_SESSION['email'])) {
                             echo isset($_GET['error']) ? '
                             <div class="alert alert-danger alert-dismissible fade show" role="alert">
                               <i class="bi bi-exclamation-octagon me-1"></i>
-                              Voici mon erreur! '.$_GET['error'].'
+                             Erreur : ! '.$_GET['error'].'
                               <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                             </div>': ''; 
                           ?>

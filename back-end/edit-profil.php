@@ -30,6 +30,7 @@ $database = new Database();
 $pdo = $database->connectDb();
 if($_POST['password'] !== '12345678'){
     $champs_updated =[
+
         'lastname = \''.$_POST['nom'].'\'',
         'firstname = \''.$_POST['prenom'].'\'',
         'email = \''.$_POST['email'].'\'',
