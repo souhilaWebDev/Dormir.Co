@@ -31,7 +31,7 @@ class Verification {
     }
 
     public function Texte($name, $param) {
-        return $this->Verif($name, 2, 51, 'Votre '.$param.' est invalide');
+        return $this->Verif($name, 1, 51, 'Votre '.$param.' est invalide');
     }
 
     public function Phone($name) {

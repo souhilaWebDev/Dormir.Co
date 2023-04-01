@@ -20,6 +20,8 @@ $result = $result->fetchAll();
 // Verfier si l'email de l'utilisateur existe 
 if (count($result) <= 0) {
     $verif->setArray(["Email/Mot de passe incorrecte"]);
+} else{
+    $_SESSION['id_user'] = $result['id_user'];
 }
 
 if (count($verif->getArray()) > 0) {
