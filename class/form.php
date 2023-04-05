@@ -35,9 +35,6 @@
            
             // Verfier si l'email de l'utilisateur existe 
 
-
-           
-
             ?>
             <div class="col-6"><label for="pet-select">Choisir votre ville:</label>
 
