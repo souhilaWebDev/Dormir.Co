@@ -1,5 +1,5 @@
 <?php
-require('./back-end/voir-annonce.php');
+require('./back-end/mes-annonces.php');
 require_once('./composant/header.php');
 //require_once('./composant/navbar.php');
 require_once('./composant/sidebar.php');
@@ -23,7 +23,7 @@ require_once('./composant/sidebar.php');
                         '
                         <a href="http://localhost/dormir.co/voir-plus.php/?id_ad=' . $value['id_ad']. '" class="btn btn-primary">Voir plus</a>
                         <a href="http://localhost/dormir.co/modifier-annonce.php/?id_ad=' . $value['id_ad']. '" class="btn btn-success mt-2">Modifier</a>
-                        <a href="#" class="btn btn-danger mt-2">Supprimer</a>
+                        <a href="http://localhost/dormir.co/supprimer-annonce.php/?id_ad=' . $value['id_ad']. '" class="btn btn-success mt-2">Supprimer</a>
                         <a href="#" class="btn btn-warning mt-2">Favoris</a>
                         </div>
                     </div>';
@@ -40,3 +40,4 @@ require_once('./composant/sidebar.php');
 //require_once('composant/footer.php');
 //}
 ?>
+

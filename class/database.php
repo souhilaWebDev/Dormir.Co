@@ -70,7 +70,7 @@ class Database {
             $sql .= $table." SET ";
             
             $sql .= implode( ', ',$champs_valeur);
-           
+
             $array = [];
             // si le tableau est superieur a 1
             if (count($where) > 1) {
@@ -106,6 +106,20 @@ class Database {
         // j'execute ma requete sql avec les valeurs
         $statement->execute($array);
         return $statement;
+    }
+
+    public function delete($pdo, $table, $champ_id,$array, $numero){
+        try {
+        $sql = "DELETE ";
+        
+        $sql = $sql." FROM ".$table." WHERE ".$table.".".$champ_id."=".$numero.";";
+        $statement = $pdo->prepare($sql);
+        $statement->execute($array);
+        return $statement;
+        } catch (Exception $e) {
+        return false;
+        }
+        
     }
 
     // public function selectLesftJoinWhere(){
