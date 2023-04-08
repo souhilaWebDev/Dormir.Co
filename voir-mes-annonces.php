@@ -20,10 +20,18 @@ $form = new Form();
         <div class="pagetitle">
             <h1>Annonces</h1>
         </div><!-- End Page Title -->
-
+        <div class="card">
+            <?php 
+              echo isset($_GET['msg']) ? '
+              <div class="m-4 alert alert-success alert-dismissible fade show" role="alert">
+              <i class="bi bi-check-circle me-1"></i>
+                Voici mon message : '.$_GET['msg'].'
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+              </div>': ''; 
+            ?>
             <div class="row">
             <?php if(empty($result)){
-            echo'<div class="card">
+            echo'
                     <div class="col-lg-6">
                         <div class="card-body">
                             <h4 class="card-title"> Aucun résultat pour l\'instant </h4>
@@ -34,17 +42,10 @@ $form = new Form();
             }else{?>
 
 <!-- // debut du tableau  -->
-                <div class="card">
+                
                 <div class="card-body">
                   <h5 class="card-title">Toutes Mes annonces</h5>
-                  <?php 
-                            echo isset($_GET['msg']) ? '
-                            <div class="alert alert-success alert-dismissible fade show" role="alert">
-                            <i class="bi bi-check-circle me-1"></i>
-                              Voici mon message : '.$_GET['msg'].'
-                              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                            </div>': ''; 
-                          ?>
+                 
                   <!-- Table with hoverable rows -->
                   <table class="table table-hover ">
                     <thead>
