@@ -63,6 +63,31 @@ class Database {
             return false;
         }
     }
+  
+    public function update($pdo, $champs_valeur, $table, $where){
+        try {
+            $sql = "UPDATE ";
+            $sql .= $table." SET ";
+            
+            $sql .= implode( ', ',$champs_valeur);
+           
+            $array = [];
+            // si le tableau est superieur a 1
+            if (count($where) > 1) {
+                // le where egale au résultat
+                $sql .= " WHERE ".$where[0]."= ?";
+                // la valeur dans le tableau pour execute
+                $array = [$where[1]];
+            }
+            var_dump($sql);
+            var_dump($array);
+            $statement = $pdo->prepare($sql);
+            $statement->execute($array);
+            return $statement;
+        } catch (Exception $e) {
+            return false;
+        }
+    }
 
     public function selectLeftJoinWhereLike($pdo, $champs, $table,$table2, $fusion, $where) {
         // requete sql

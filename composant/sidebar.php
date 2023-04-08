@@ -28,32 +28,33 @@
       </li><!-- End Profile Page Nav -->
 
       <li class="nav-item">
+        <a class="nav-link collapsed" href="<?=URL?>/voir-mes-annonces.php">
+        <i class="bi bi-card-checklist"></i>
+          <span>Mes Annonces</span>
         <a class="nav-link collapsed" href="<?=URL?>/voir-annonces.php">
         <i class="bi bi-card-list"></i>
           <span>Voir les Annonces</span>
         </a>
-      </li><!-- End F.A.Q Page Nav -->
-
+      </li>
       <li class="nav-item">
-        <a class="nav-link collapsed" href="pages-contact.html">
-          <i class="bi bi-envelope"></i>
-          <span>Contact</span>
+        <a class="nav-link collapsed" href="<?=URL?>/creer-une-annonce.php">
+        <i class="bi bi-card-checklist"></i>
+          <span>Ajouter une Annonce</span>
         </a>
-      </li><!-- End Contact Page Nav -->
-
+      </li>
       <li class="nav-item">
-        <a class="nav-link collapsed" href="pages-register.html">
-          <i class="bi bi-card-list"></i>
-          <span>Register</span>
+        <a class="nav-link collapsed" href="<?=URL?>/voir-mes-favories.php">
+          <i class="bi bi-bookmark-star"></i>
+          <span>Mes Favoris</span>
         </a>
-      </li><!-- End Register Page Nav -->
+      </li>
 
       <li class="nav-item">
         <a class="nav-link collapsed" href="<?=URL?>/back-end/deconnexion.php">
           <i class="bi bi-box-arrow-right"></i>
           <span>Déconnexion</span>
         </a>
-      </li><!-- End Login Page Nav -->
+      </li><!-- End Logout Page Nav -->
 
     </ul>
 
