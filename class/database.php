@@ -64,23 +64,11 @@ class Database {
         }
     }
   
-    public function update($pdo, $champs_valeur, $table, $where){
+    public function update($pdo, $champs_valeur, $table,$array, $where){
         try {
             $sql = "UPDATE ";
-            $sql .= $table." SET ";
-            
-            $sql .= implode( ', ',$champs_valeur);
-
-            $array = [];
-            // si le tableau est superieur a 1
-            if (count($where) > 1) {
-                // le where egale au résultat
-                $sql .= " WHERE ".$where[0]."= ?";
-                // la valeur dans le tableau pour execute
-                $array = [$where[1]];
-            }
-            var_dump($sql);
-            var_dump($array);
+            $sql = $sql.$table." SET ".$champs_valeur;
+            $sql=$sql." WHERE ".$where[0]."=".$where[1]." and ".$where[2]."=".$where[3]." ;";
             $statement = $pdo->prepare($sql);
             $statement->execute($array);
             return $statement;

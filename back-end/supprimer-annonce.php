@@ -1,7 +1,7 @@
 <?php 
 session_start();
-require_once('../class/database.php');
-require_once('../class/verification.php');
+require_once('./class/database.php');
+require_once('./class/verification.php');
 
 // init object class database
 $database = new Database();

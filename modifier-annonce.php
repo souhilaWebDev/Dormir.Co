@@ -13,29 +13,28 @@ $result = $database->select($pdo, '*', 'ad', ['id_ad', $_GET['id_ad']]);
 $result = $result->fetchAll();
 $form = new Form();
 
-
+$_SESSION['modif']=$_GET['id_ad'];
 //$requete = "SELECT * FROM ad WHERE titre = :titre, description = :description, price = :price, phone = :phone, id_user = :id_user, id_ville_france = :id_ville_france";
 
 ?>
-
 <main>
         
-                  <form action="back-end/modifier-annonce.php" method="post" id="ajout">
-               <?php 
+                  <form action="http://localhost/dormir.Co/back-end/modifier-annonce.php" method="post" id="modif">
+<?php 
                 foreach ($result as $key => $value) {
                   echo $form->Input("6", "title", "Le titre", "text", "", $value['title']);
-                  echo '<div class="col-12">La description<textarea name="description">' .$value['description'] . '</textarea></div>';
+                  echo $form->Input("6", "description", "La description", "text", "", $value['description']);
                   echo $form->Input("6", "price", "Le prix", "prix", "", $value['price']);
                   echo $form->Input("6", "phone", "Votre téléphone", "tel", "", $value['phone']);
                   echo $form->Input("6", "adress", "Votre adresse", "adresse", "", $value['address']);
-                  echo $form->Input("6", "ville", "Votre ville", "ville", "", $_GET['id_ville_france'] ??  '');
-                  echo 
-                  '<a href="http://localhost/dormir.co/back-end/update.php/' . $value['id_ad']. '" class="btn btn-primary">Modifier</a>
-';
+                  echo $form->Input("6","id_ad","","hidden","", $value['id_ad']);
+                  echo $form->Input("12", "Modifier", "", "submit", "Modifier", 'Modifier');
               }
                 
                 ?>
                   </form>
+
+
               <div class="credits">
               Réaliser par :<a href="#"> Les Perles Du Code <i class="bi bi-gem"></i></a>
               </div>
