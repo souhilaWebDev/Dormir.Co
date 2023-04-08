@@ -48,7 +48,6 @@ $pdo = $database->connectDb();
             Réaliser par :<a href="#"> Les Perles Du Code <i class="bi bi-gem"></i></a>
             </div>
 
-
 </main><!-- End #main -->
 
 </body>
