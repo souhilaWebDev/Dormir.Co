@@ -15,16 +15,22 @@
       </li><!-- End Dashboard Nav -->
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="users-profile.html">
-          <i class="bi bi-person"></i>
-          <span>Profile</span>
+        <a class="nav-link collapsed" href="<?=URL?>/voir-profil.php">
+          <i class="bi bi-person-lines-fill"></i>
+          <span>Voir profil</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="<?=URL?>/edit-profil.php">
+        <i class="bi bi-pencil-square"></i>
+          <span>Modifier profil</span>
         </a>
       </li><!-- End Profile Page Nav -->
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="pages-faq.html">
-          <i class="bi bi-question-circle"></i>
-          <span>F.A.Q</span>
+        <a class="nav-link collapsed" href="<?=URL?>/voir-annonces.php">
+        <i class="bi bi-card-list"></i>
+          <span>Voir les Annonces</span>
         </a>
       </li><!-- End F.A.Q Page Nav -->
 
