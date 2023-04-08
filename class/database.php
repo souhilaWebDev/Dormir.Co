@@ -5,7 +5,7 @@ class Database {
     private $db = 'dormirco';
     // private $db = 'f2i_php';
     private $user = 'root';
-    private $password = '';
+    private $password = 'root';
     private $port = 3306;
 
     public function connectDb() {
