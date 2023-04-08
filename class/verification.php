@@ -33,9 +33,15 @@ class Verification {
     public function Texte($name, $param) {
         return $this->Verif($name, 2, 51, 'Votre '.$param.' est invalide');
     }
-
+    public function Textelong($txt, $param) {
+        return $this->Verif($txt, 10, 10000, 'Votre '.$param.' est invalide');
+    }
+    
     public function Phone($name) {
         return $this->Verif($name, 2, 11, 'Votre téléphone est invalide');
+    }
+    public function Number($num, $param) {
+        return $this->Verif($num, 1, 15, 'Votre '.$param.' est invalide');
     }
 
     public function Password($password, $password2) {

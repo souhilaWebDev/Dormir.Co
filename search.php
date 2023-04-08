@@ -24,6 +24,7 @@ if (isset($_GET['text'])) {
             <h1>Accueil</h1>
         </div><!-- End Page Title -->
 
+        
         <form action=''  method="get">
             <div class="card p-3">
                 <div class="row">

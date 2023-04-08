@@ -36,13 +36,14 @@ class Database {
         // init array
         $array = [];
         // si le tableau est superieur a 1
+        if(!empty($where)){
         if (count($where) > 1) {
 
             // le where egale au résultat
             $sql = $sql." WHERE ".$where[0]."= ?";
             // la valeur dans le tableau pour execute
             $array = [$where[1]];
-        }
+        }}
         // je prépare ma requete sql pour eviter les injection sql
         $statement = $pdo->prepare($sql);
         // j'execute ma requete sql avec les valeurs
@@ -95,21 +96,40 @@ class Database {
         // init array
         $array = [];
         // si le tableau est superieur a 1
+        if(!empty($where)){
         if (count($where) > 1) {
             // le where egale au résultat
             $sql = $sql." WHERE ".$where[0]." LIKE ?";
             // la valeur dans le tableau pour execute
             $array = [$where[1]];
-        }
+        }}
         // je prépare ma requete sql pour eviter les injection sql
         $statement = $pdo->prepare($sql);
         // j'execute ma requete sql avec les valeurs
         $statement->execute($array);
         return $statement;
     }
+    public function delete($pdo, $table, $champ_id,$array, $numero){
 
-    // public function selectLesftJoinWhere(){
+        try {
         
-    // }
+         $sql = "DELETE ";
+        
+        
+         $sql = $sql." FROM ".$table." WHERE ".$table.".".$champ_id."=".$numero.";";
+        
+         $statement = $pdo->prepare($sql);
+        
+         $statement->execute($array);
+        
+         return $statement;
+        
+         } catch (Exception $e) {
+        
+        return false;
+        
+       }}
+        
+    
 }
 ?>
