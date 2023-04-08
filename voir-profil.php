@@ -6,20 +6,10 @@ if(!isset($_SESSION['email'])) { // Vérifie si l'utilisateur n'est pas connect�
 }
 require_once 'back-end/config.php';
 require('class/database.php');
+require_once 'back-end/voir-profil.php';
 require_once('composant/header.php');
 require_once('composant/navbar.php');
 require_once('composant/sidebar.php');
-  
-    $database = new Database();
-    $pdo = $database->connectDb();
-    $result = $database->select($pdo, '*', 'user', ['email', $_SESSION['email']]);
-    $user = $result->fetch(PDO::FETCH_ASSOC);
-
-    // Vérification si l'utilisateur existe
-    if (!$user) {
-        echo "Utilisateur n'existe pas.";
-        exit();
-    }
     ?>
     
     <main id="main" class="main">
@@ -91,7 +81,9 @@ require_once('composant/sidebar.php');
                             </div>
                         </div>
 
-                    
+<!-- file-earmark-person
+file-person-fill -->
+
 
                     </div>
                 </div>
