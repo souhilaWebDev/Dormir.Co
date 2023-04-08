@@ -25,11 +25,14 @@ $form = new Form();
 
             <div class="row">
             <?php if(empty($result)){
-               echo'<div class="col-lg-6">
+                
+             echo'<div class="card">
+                    <div class="col-lg-6">
                         <div class="card-body">
                             <h4 class="card-title"> Aucune annonce préférée pour l\'instant </h4>
                         </div>
-                    </div>';
+                    </div>
+                  </div>';   
             }else{
              foreach ($result as $key => $value) {
                  ?>     

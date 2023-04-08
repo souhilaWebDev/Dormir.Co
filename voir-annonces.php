@@ -45,7 +45,7 @@ $form = new Form();
                         <div class="card-body">
                             <h4 class="card-title"><?=$value['title']?></h4>
                             <h6 class="card-subtitle mb-2 text-muted"><i class="bi bi-pin-angle"></i> <?=$value['address'] ?></h6>
-                            <p><?= substr($value['description'], 0, 100)?>.</p>
+                            <p><?= substr($value['description'], 0, 90)?>.</p>
                            
                             <div class="row pb-3">
                                 <div class="col-lg-6 text-danger">Prix : <?=$value['price']?> <i class="bi bi-currency-euro"></i></div>
