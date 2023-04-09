@@ -70,17 +70,9 @@ require_once('composant/sidebar.php');
                                         <div class="col-lg-6"><i class="bi bi-calendar2-week"></i> Créer le : <?=date('d-m-Y', strtotime($result['date_created']))?>
                                     </div>
                                     </div>
-                                        <?php if($result['email'] ===  $_SESSION['email']){ ?>
-                                            <p class="card-text text-center d-grid gap-2"><a href="edit-annonce.php?id_user=<?=$result['id_user']?>&msg=1" class="btn btn-primary">Mettre à jour l'annonce <i class="bi bi-pencil-square"></i></a></p>
-
-                                        <?php }else{ ?>
-                                        
-                                            <p class="card-text text-center d-grid gap-2"><a href="back-end/ajouter-favoris.php?id_ad=<?=$result['id_ad']?>" class="btn btn-warning">Ajouter à mes favoris <i class="bi bi-star me-1"></i></a></p>
-                                        <?php } ?>
+                            <?php require_once 'back-end/boutton-detail-annonce.php'; ?>       
                                     </div>
-                                </div>
-                     
-                               
+                                </div>          
                     <?php          
                         }else{
                         echo'<div class="col-lg-6">

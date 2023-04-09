@@ -6,14 +6,7 @@ require_once('../class/verification.php');
 
 $verif = new Verification();
 
-if(!isset($_SESSION['id_user'])){
-  $database = new Database();
-  $pdo = $database->connectDb();
-  // on recupere le id_user 
-  $result = $database->select($pdo, '*', 'user', ['email', $_SESSION['email']]);
-  $result = $result->fetchAll();
-  $_SESSION['id_user'] = $result[0]['id_user'];
-}
+
 // enregistrer la demande
 $array = [
     $_SESSION['id_user'],
