@@ -21,8 +21,16 @@ $form = new Form();
             <h1>Mes annonces préférées</h1>
         </div><!-- End Page Title -->
 
-        
-
+        <div class="card">
+            
+            <?php 
+              echo isset($_GET['msg']) ? '
+              <div class="m-4 alert alert-success alert-dismissible fade show" role="alert">
+              <i class="bi bi-check-circle me-1"></i>
+                Voici mon message : '.$_GET['msg'].'
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+              </div>': ''; 
+            ?>
             <div class="row">
             <?php if(empty($result)){
                 
@@ -47,7 +55,7 @@ $form = new Form();
                                 <div class="col-lg-6 text-danger">Prix : <?=$value['price']?> <i class="bi bi-currency-euro"></i></div>
                                 <div class="col-lg-6 text-primary"><i class="bi bi-geo-alt-fill"></i> Ville : <?=$value['ville_slug']?> </div>
                             </div>
-                            <p class="card-text text-center d-grid gap-2"><a href="<?=URL?>/back-end/supprimer-favoris.php?id_annonce=<?=$value['id_ad']?>&id_user=<?=$value['id_user']?>&msg=suppressioneffectuer" class="btn btn-danger">retirer des favoris <i class="bi bi-trash"></i></a></p>
+                            <p class="card-text text-center d-grid gap-2"><a href="<?=URL?>/back-end/supprimer-favoris1.php?id_annonce=<?=$value['id_ad']?>&id_user=<?=$value['id_user']?>"  class="btn btn-danger">retirer des favoris <i class="bi bi-trash"></i></a></p>
                         </div>
                     </div>
                 </div>
