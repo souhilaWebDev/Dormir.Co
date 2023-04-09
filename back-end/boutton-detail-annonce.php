@@ -24,7 +24,7 @@ if (count($favoris) > 0) {
 }
 
 if($result['email'] ===  $_SESSION['email']){ ?>
-    <p class="card-text text-center d-grid gap-2"><a href="edit-annonce.php?id_user=<?=$result['id_user']?>&msg=1" class="btn btn-primary">Mettre à jour l'annonce <i class="bi bi-pencil-square"></i></a></p>
+    <p class="card-text text-center d-grid gap-2"><a href="<?=URL?>/edit-annonce.php?id_ad=<?=$result['id_ad']?>" class="btn btn-primary">Mettre à jour l'annonce <i class="bi bi-pencil-square"></i></a></p>
 <?php 
 }elseif(count($favoris) > 0){ ?>
     <p class="card-text text-center d-grid gap-2"><a href="voir-mes-favories.php" class=" btn btn-outline-warning">Annonce déja favorite <i class="bi bi-star-fill"></i></a></p>

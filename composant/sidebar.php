@@ -8,7 +8,7 @@
     <ul class="sidebar-nav" id="sidebar-nav">
 
       <li class="nav-item">
-        <a class="nav-link " href="#">
+        <a class="nav-link " href="<?=URL?>/search.php">
           <i class="bi bi-grid"></i>
           <span>Tableau de bord</span>
         </a>
@@ -17,7 +17,7 @@
       <li class="nav-item">
         <a class="nav-link collapsed" href="<?=URL?>/voir-profil.php">
           <i class="bi bi-person-lines-fill"></i>
-          <span>voir profil</span>
+          <span>Voir profil</span>
         </a>
       </li>
       <li class="nav-item">
@@ -31,7 +31,13 @@
       <li class="nav-item">
         <a class="nav-link collapsed" href="<?=URL?>/voir-annonces.php">
         <i class="bi bi-card-list"></i>
-          <span>voir les Annonces</span>
+          <span>Voir les Annonces</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="<?=URL?>/search.php">
+        <i class="bi bi-search"></i>
+          <span>Recherche une annonce</span>
         </a>
       </li>
       <li class="nav-item">
@@ -42,7 +48,7 @@
       </li>
       <li class="nav-item">
         <a class="nav-link collapsed" href="<?=URL?>/creer-une-annonce.php">
-        <i class="bi bi-card-checklist"></i>
+        <i class="bi bi-clipboard-plus"></i>
           <span>Ajouter une Annonce</span>
         </a>
       </li>

@@ -16,12 +16,8 @@ $database = new Database();
 $pdo = $database->connectDb();
 // create select requete
 $result = $database->select($pdo, 'ville_id, ville_nom', 'villes_france','');
-
-                
-               
-                
-?>
-    
+              
+?>  
     <main id="main" class="main">
 
         <div class="pagetitle">
@@ -54,15 +50,15 @@ $result = $database->select($pdo, 'ville_id, ville_nom', 'villes_france','');
                 <label for="ville" class="form-label">La ville</label>
                 <select id="ville" name="ville" class="form-select">
                 
-                <option value="" selected>Choisir la ville...</option>
+                <option value="">Choisir la ville...</option>
                 ';
                 while($res = $result->fetch(PDO::FETCH_ASSOC)) {
                     if(isset($_GET['ville']) && $res['ville_id'] == $_GET['ville'] ){}
-                    echo'<option value="'.$res['ville_id'].'">'.$res['ville_nom'].'</option>';
+                    // echo'<option value="'.$res['ville_id'].'">'.$res['ville_nom'].'</option>';
+                    echo'<option value="'.$res['ville_id'].'" '.($res['ville_id'] == $_GET['ville'] ? 'selected' : '' ).'>'.$res['ville_nom'].'</option>';
                 }
                 echo'</select>
                 </div>';
-                // '.$_GET['ville'] ??  ''.'
                 
                 echo $form->Input("3", "price", "Le prix", "number\" step='.01'", "Entrer un prix", $_GET['price'] ?? '');
                 echo $form->Input("4", "phone", "Le téléphone", "tel", "Entrer un téléphone", $_GET['phone'] ?? '');

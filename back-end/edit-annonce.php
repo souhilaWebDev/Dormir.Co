@@ -1,55 +1,70 @@
 <?php 
 session_start();
-require_once('./config.php');
+require('./config.php');
 require_once('../class/database.php');
 require_once('../class/verification.php');
+// var_dump($_POST);
+// Vérifier si le formulaire a été envoyer
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
-
-/*$verif = new Verification();
-// Verifier le nom 
+    $verif = new Verification();
+   // Verification des inputs
 $verif->Texte($_POST['title'], 'title');
-// Verifier le prenom 
-$verif->Texte($_POST['description'], 'description');
-// Verifier l'email et vérifier en base de donnée si il l'existe
-$verif->Texte($_POST['price'], 'price');
-// Verifier le téléphone
+$verif->Texte($_POST['address'], 'address');
+$verif->Number($_POST['ville'], 'ville');
+$verif->Number($_POST['price'], 'price');
 $verif->Phone($_POST['phone']);
-$verif->Texte($_SESSION['id_user'], 'id_user'); 
-$verif->Texte($_POST['ville'], 'ville');*/
+$verif->Textelong($_POST['description'], 'description');
 
-/*if (count($verif->getArray()) > 0) {
-  //  return header('Location: '.URL.'/?error='.$verif->getIndexError(0).'&title='.$_POST['title'].'&description='.$_POST['description'].'&price='.$_POST['price'].'&phone='.$_POST['telephone'].'&ville='.$_POST['ville']);
-}*/
-// init object class database
-$database = new Database();
-// connexion bdd
-$pdo = $database->connectDb();
-
-$title =  isset($_POST['title']) ? $_POST['title']: '';
-$description =  isset($_POST['description']) ? $_POST['description']: '';
-$price =  isset($_POST['price']) ? $_POST['price']: '';
-$phone =  isset($_POST['phone']) ? $_POST['phone']: '';
-//$id_user =  isset($_POST['id_user']) ? $_POST['id_user']: '';
-$id_ville_france =  isset($_POST['ville']) ? $_POST['ville']: '';
-$id_ad = $_GET['id_ad'];
-
-//$update = $database->update($pdo, "title, description, price, phone, id_user, id_ville_france", "ad", $array, '?,?,?,?,?,?');
-$sql = "UPDATE ad SET titre = :titre, description = :description, price = :price, phone = :phone, id_ville_france = :id_ville_france, WHERE id_ad = :id_ad";
-
-
-if ($sql == false) {
-    $verif->setArray(["L'annonce n'a pas pu être modifié"]);
-} else {
-    echo 'votre  annonce a été bien modifié';
+    
+if (count($verif->getArray()) > 0) {
+    return header('Location: '.URL.'/edit-annonce.php?error='.$verif->getIndexError(0));
 }
+if(!isset($_SESSION['id_user'])){
+    $database = new Database();
+    $pdo = $database->connectDb();
+    // on recupere le id_user 
+    $result = $database->select($pdo, '*', 'user', ['email', $_SESSION['email']]);
+    $result = $result->fetchAll();
+    $_SESSION['id_user'] = $result[0]['id_user'];
+  }  
+//   $desc = htmlspecialchars($_POST['description']);
+    $champs_updated =[
+        
+        'title = \''.$_POST['title'].'\'',
+        // 'description = \''.htmlspecialchars($_POST['description']).'\'',
 
-/*if (count($verif->getArray()) > 0) {
-  //  return header('Location: '.URL.'/?error='.$verif->getIndexError(0).'&title='.$_POST['title'].'&description='.$_POST['description'].'&price='.$_POST['price'].'&phone='.$_POST['telephone'].'&ville='.$_POST['ville']);
-}*/
+        // addslashes(strip_tags($_POST['description']))
+        'description = \''.addslashes(strip_tags($_POST['description'])).'\'',
+        'price = '.$_POST['price'].'',
+        'phone = \''.$_POST['phone'].'\'',
+        'address = \''.$_POST['address'].'\'',
+        'date_updated = \''.date("Y-m-d H:i:s").'\'',
+        'id_user = \''.$_SESSION['id_user'].'\'',
+        'id_ville_france = \''.$_POST['ville'].'\''
+    ];
 
-// header('Location: '.URL.'/search.php');
+ 
+    $database = new Database();
+    $pdo = $database->connectDb();
+  
+    $update = $database->update($pdo, $champs_updated, "ad", ['id_ad', $_POST['id_ad']]);
+// var_dump($update);die();
+    if ($update == false) {
+        $verif->setArray(["L'annonce n'a pas pu être mise à jour"]);
+    }
+    
+ 
+    if (count($verif->getArray()) > 0) {
+    return header('Location: '.URL.'/edit-annonce.php?error='.$verif->getIndexError(0));
+    }
 
-// }else{
-//     header('Location: '.URL.'/index.php');
-// }
-// header('Location: '.URL.'/voir-annonce.php');
+    
+    $verif->setArray(["Annonce mis à jour avec success"]);
+    // Rediriger l'utilisateur vers la page de ses annonces
+    header('Location:'.URL.'/voir-mes-annonces.php?msg='.$verif->getIndexError(0));
+    exit();
+}else{
+    header('Location:'.URL.'/voir-mes-annonces.php');
+}
+?>

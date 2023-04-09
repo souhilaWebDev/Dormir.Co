@@ -27,13 +27,15 @@ if(!isset($_SESSION['id_user'])){
   $_SESSION['id_user'] = $result[0]['id_user'];
 }
 // enregistrer la demande
+
 $array = [
     $_POST['title'],
     $_POST['address'],
     $_POST['ville'],
     $_POST['price'],
     $_POST['phone'],
-    $_POST['description'],
+    htmlspecialchars($_POST['description']),
+    // $_POST['description'],
     $_SESSION['id_user']
 ];
 $database = new Database();

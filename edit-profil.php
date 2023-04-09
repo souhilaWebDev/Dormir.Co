@@ -11,9 +11,7 @@ require_once('./composant/header.php');
 require_once('./composant/navbar.php');
 require_once('./composant/sidebar.php');
 
-if(!isset($_SESSION['email'])) {
-    header('Location: '.URL.'/login.php?error=Merci de vous connecter');
-}else{
+
     $form = new Form();
     $database = new Database();
     $pdo = $database->connectDb();
@@ -70,5 +68,5 @@ if(!isset($_SESSION['email'])) {
 
 <?php 
 require_once('composant/footer.php');
-}?>
+?>
 
