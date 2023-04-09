@@ -3,7 +3,7 @@
     require_once('composant/header.php');
     session_start();
     if(isset($_SESSION['id_user'])) { // Vérifie si l'utilisateur est déjà connecté
-        header("Location: main.php"); // Redirige l'utilisateur vers le tableau de bord
+        header("Location: search.php"); // Redirige l'utilisateur vers le tableau de bord
         exit;
     }
     $form = new Form();
