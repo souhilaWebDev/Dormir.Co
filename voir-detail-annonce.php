@@ -75,16 +75,13 @@ require_once('composant/sidebar.php');
 
                                         <?php }else{ ?>
                                         
-                                            <p class="card-text text-center d-grid gap-2"><a href="voir-mes-favories.php?id_user=<?=$result['id_user']?>&msg=1" class="btn btn-warning">Ajouter à mes favoris <i class="bi bi-star me-1"></i></a></p>
+                                            <p class="card-text text-center d-grid gap-2"><a href="back-end/ajouter-favoris.php?id_ad=<?=$result['id_ad']?>" class="btn btn-warning">Ajouter à mes favoris <i class="bi bi-star me-1"></i></a></p>
                                         <?php } ?>
                                     </div>
                                 </div>
-                           
-
-
-                                  
-                                <?php
+                     
                                
+                    <?php          
                         }else{
                         echo'<div class="col-lg-6">
                                 <div class="card-body">

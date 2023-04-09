@@ -17,7 +17,7 @@ $delete  = $statement->execute($array);
   if ($delete == false) {
   $verif->setArray(["Erreur de suppression"]);
   }else {
-  $verif->setArray(["Votre favoris a bien été supprimé"]);
+  $verif->setArray(["Votre favoris a bien été retirer"]);
   }
 
 header('Location: '.URL.'/voir-mes-favories.php?msg='.$verif->getIndexError(0));
