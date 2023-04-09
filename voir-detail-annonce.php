@@ -51,16 +51,25 @@ require_once('composant/sidebar.php');
                                     
                                         <div class="row pb-3">
                                             <div class="col-lg-6 text-danger">Prix : <?=$result['price']?> <i class="bi bi-currency-euro"></i></div>
-                                            <div class="col-lg-6 text-primary"><i class="bi bi-geo-alt-fill"></i> Téléphone : <?=$result['phone']; ?>
+                                            <div class="col-lg-6 text-primary"><i class="bi bi-telephone-fill"></i> Téléphone : <?=$result['phone']; ?>
                                             </div>
                                             
                                         </div>
-                                        <div class="pb-3"><i class="bi bi-geo-alt-fill"></i> Ville : <?=$result['ville_slug'] ?>
+                                        <div class="row pb-3">
+                                        <div class="col-lg-6">
+                                        <i class="bi bi-geo-alt-fill"></i> Ville : <?=$result['ville_slug'] ?>
                                         </div>
-                                        <div class="pb-3"><i class="bi bi-mailbox2"></i> Code postal : <?=$result['ville_code_postal'] ?>
+                                        <div class="col-lg-6">
+                                        <i class="bi bi-mailbox2"></i> Code postal : <?=$result['ville_code_postal'] ?>
                                         </div>
-                                        <div class="pb-3">cree par : <?=$result['firstname'].' '.$result['lastname']; ?><i class="bi bi-currency-euro"></i></div>
-                                        <div class="pb-3">cree le : <?=$result['date_created']?><i class="bi bi-currency-euro"></i></div>
+                                        </div>
+                                        <div class="row pb-3">
+                                            <div class="col-lg-6">
+                                        <i class="bi bi-person-bounding-box"></i> Créer par : <?=$result['firstname'].' '.$result['lastname']; ?>
+                                        </div>
+                                        <div class="col-lg-6"><i class="bi bi-calendar2-week"></i> Créer le : <?=date('d-m-Y', strtotime($result['date_created']))?>
+                                    </div>
+                                    </div>
                                         <?php if($result['email'] ===  $_SESSION['email']){ ?>
                                             <p class="card-text text-center d-grid gap-2"><a href="edit-annonce.php?id_user=<?=$result['id_user']?>&msg=1" class="btn btn-primary">Mettre à jour l'annonce <i class="bi bi-pencil-square"></i></a></p>
 

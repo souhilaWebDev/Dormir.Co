@@ -47,7 +47,7 @@ $form = new Form();
                                 <div class="col-lg-6 text-danger">Prix : <?=$value['price']?> <i class="bi bi-currency-euro"></i></div>
                                 <div class="col-lg-6 text-primary"><i class="bi bi-geo-alt-fill"></i> Ville : <?=$value['ville_slug']?> </div>
                             </div>
-                            <p class="card-text text-center d-grid gap-2"><a href="<?=URL?>/back-end/supprimer-favoris.php?id_annonce=<?=$value['id_ad']?>&id_user=<?=$value['id_user']?>&msg=suppression effectuer" class="btn btn-danger">retirer des favoris <i class="bi bi-trash"></i></a></p>
+                            <p class="card-text text-center d-grid gap-2"><a href="<?=URL?>/back-end/supprimer-favoris.php?id_annonce=<?=$value['id_ad']?>&id_user=<?=$value['id_user']?>&msg=suppressioneffectuer" class="btn btn-danger">retirer des favoris <i class="bi bi-trash"></i></a></p>
                         </div>
                     </div>
                 </div>

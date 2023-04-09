@@ -47,7 +47,7 @@ if ($insert == false) {
 }
 
 if (count($verif->getArray()) > 0) {
-   return header('Location: '.URL.'/voir-mes-annonces.php?msg='.$verif->getIndexError(0).'&title='.$_POST['title'].'&description='.$_POST['description'].'&price='.$_POST['price'].'&phone='.$_POST['telephone'].'&address='.$_POST['address'].'&ville='.$_POST['ville']);
+   return header('Location: '.URL.'/voir-mes-annonces.php?msg='.$verif->getIndexError(0));
 }
 
 // header('Location: '.URL.'/search.php');

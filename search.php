@@ -21,7 +21,7 @@ if (isset($_GET['text'])) {
     <main id="main" class="main">
 
         <div class="pagetitle">
-            <h1>Accueil</h1>
+            <h1>Recherche une annonce</h1>
         </div><!-- End Page Title -->
 
         

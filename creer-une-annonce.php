@@ -57,6 +57,7 @@ $result = $database->select($pdo, 'ville_id, ville_nom', 'villes_france','');
                 <option value="" selected>Choisir la ville...</option>
                 ';
                 while($res = $result->fetch(PDO::FETCH_ASSOC)) {
+                    if(isset($_GET['ville']) && $res['ville_id'] == $_GET['ville'] ){}
                     echo'<option value="'.$res['ville_id'].'">'.$res['ville_nom'].'</option>';
                 }
                 echo'</select>
@@ -68,7 +69,7 @@ $result = $database->select($pdo, 'ville_id, ville_nom', 'villes_france','');
 
                 echo'<div class="col-12">
                     <label for="description" class="form-label">Votre discription</label>
-                    <textarea name="description" id="description" class="form-control" style="height: 100px" required></textarea>
+                    <textarea name="description" id="description" class="form-control" style="height: 100px" required>'.($_GET['description'] ??  '').'</textarea>
                 </div>';
                  echo $form->Input("12", "ajouter", "", "submit", "Ajouter une annonce", 'ajouter');
                 ?>

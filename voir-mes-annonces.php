@@ -70,7 +70,7 @@ $form = new Form();
                         <td><?=$value['title']?></td>
                         <td><?=$value['ville_slug']?> </td>
                         <td><?=$value['price']?> </td>
-                        <td><?=$value['date_updated']?></td>
+                        <td><?=date('d-m-Y', strtotime($value['date_updated']))?></td>
                         <td class=" text-center">
                             <div class="btn-group" role="group" aria-label="Basic mixed styles example">
                                 <a  href="<?=URL?>/back-end/supprimer-annonce.php?id_ad=<?=$value['id_ad']?>" class="btn btn-danger" data-bs-toggle="tooltip" data-bs-placement="left" data-bs-original-title="Supprimer"><i class="bi bi-trash"></i></a>
