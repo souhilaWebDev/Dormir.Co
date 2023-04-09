@@ -32,8 +32,8 @@
 
             <li>
               <a class="dropdown-item d-flex align-items-center" href="users-profile.html">
-                <i class="bi bi-gear"></i>
-                <span>Account Settings</span>
+                <i class="bi bi-pencil-square"></i>
+                <span>Modifier Profil</span>
               </a>
             </li>
             <li>
