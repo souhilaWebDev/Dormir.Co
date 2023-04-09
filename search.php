@@ -68,7 +68,7 @@ if (isset($_GET['text'])) {
                                 <div class="col-lg-6 text-danger">Prix : <?=$value['price']?> <i class="bi bi-currency-euro"></i></div>
                                 <div class="col-lg-6 text-primary"><i class="bi bi-geo-alt-fill"></i> Ville : <?=$value['ville_slug']?> </div>
                             </div>
-                            <p class="card-text text-center d-grid gap-2"><a href="#" class="btn btn-primary">Voir plus <i class="bi bi-plus-circle"></i></a></p>
+                            <p class="card-text text-center d-grid gap-2"><a href="voir-detail-annonce.php?id_annonce=<?=$value['id_ad']?>"" class="btn btn-primary">Voir plus <i class="bi bi-plus-circle"></i></a></p>
                         </div>
                     </div>
                 </div>
