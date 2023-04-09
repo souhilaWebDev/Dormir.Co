@@ -48,20 +48,8 @@ if($_POST['password'] !== '12345678'){
         'date_updated = \''.date("Y-m-d H:i:s").'\''
     ];
 }
-
-// Préparer la requête SQL pour mettre à jour l'utilisateur
-// $requete = $connexion->prepare("UPDATE utilisateurs SET nom = :nom, email = :email WHERE id = :id");
-
-// Exécuter la requête avec les valeurs des paramètres
-// $requete->execute(array(
-    //     'nom' => $nom,
-    //     'email' => $email,
-    //     'id' => $utilisateur['id']
-    // ));
   
     $update = $database->update($pdo, $champs_updated, "user", ['email', $_POST['email']]);
-
-
 
     if ($update == false) {
         $verif->setArray(["L'utilisateur n'a pas pu être mise à jour"]);
@@ -71,7 +59,6 @@ if($_POST['password'] !== '12345678'){
         return header('Location: '.URL.'/edit-profil?error='.$verif->getIndexError(0).'&nom='.$_POST['nom'].'&prenom='.$_POST['prenom'].'&email='.$_POST['email'].'&telephone='.$_POST['telephone']);
     }
 
-    
     $verif->setArray(["Profil mis à jour avec success"]);
     // Rediriger l'utilisateur vers sa page de profil
     header('Location:'.URL.'/voir-profil.php?msg='.$verif->getIndexError(0));

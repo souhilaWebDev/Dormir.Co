@@ -5,14 +5,11 @@ require_once('../class/database.php');
 require_once('../class/verification.php');
 
 $verif = new Verification();
-
-
 // enregistrer la demande
 $array = [
     $_SESSION['id_user'],
     $_GET['id_ad']
 ];
-// var_dump($array);die();
 $database = new Database();
 $pdo = $database->connectDb();
 $insert = $database->insert($pdo, "id_user, id_ad", "favorite", $array, '?,?');

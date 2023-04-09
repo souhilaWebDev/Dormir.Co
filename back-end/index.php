@@ -4,7 +4,6 @@ require_once('./config.php');
 require_once('../class/database.php');
 require_once('../class/verification.php');
 
-
 $verif = new Verification();
 // Verifier le nom 
 $verif->Texte($_POST['nom'], 'nom');
@@ -48,7 +47,6 @@ $array = [
 ];
 $insert = $database->insert($pdo, "firstname, lastname, email, phone, password", " user ", $array, '?,?,?,?,?');
 
-
 if ($insert == false) {
     $verif->setArray(["L'utilisateur n'a pas pu être enregistrer"]);
 }
@@ -62,8 +60,3 @@ $_SESSION['nom']     = $_POST['nom'];
 $_SESSION['prenom']  = $_POST['prenom'];
 
 header('Location: '.URL.'/search.php');
-
-   
-// }else{
-//     header('Location: '.URL.'/index.php');
-// }

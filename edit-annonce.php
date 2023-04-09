@@ -81,13 +81,13 @@ require_once('./composant/sidebar.php');
                 </div>';
                  echo $form->Input("12", "modifier", "", "submit", "Mettre à jour l'annonce", 'modifier');
                 ?>
-                  </form>
+                </form>
 
-                        </div> 
-                    </div>     
-                </div>
+                    </div> 
+                </div>     
             </div>
-        </section>
+        </div>
+    </section>
 
     </main><!-- End #main -->
 

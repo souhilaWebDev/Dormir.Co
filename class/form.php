@@ -1,6 +1,4 @@
 <?php
-// require_once('./class/database.php');
-
     class Form {
         public function Input($size, $name, $label, $type, $placeholder, $value) {
             $un = '<div class="col-'.$size.'">';
@@ -9,7 +7,6 @@
                         <div class="invalid-feedback">'.$placeholder.'.</div>
                       </div>';
 
-    
             if ($type != 'submit') {
     
                 $deux = '<label for="'.$name.'" class="form-label">'.$label.'</label>';
@@ -30,11 +27,7 @@
             $pdo = $database->connectDb();
             // create select requete
             $result = $database->select($pdo, 'ville_id, ville_nom', 'villes_france', ['1', '1']);
-            // formalisation du résultat
-            // $result = $result->fetchAll();
-           
-            // Verfier si l'email de l'utilisateur existe 
-
+    
             ?>
             <div class="col-6"><label for="pet-select">Choisir votre ville:</label>
 

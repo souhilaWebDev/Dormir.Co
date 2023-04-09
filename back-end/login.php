@@ -32,12 +32,10 @@ $verif->PasswordVerify($result[0]['password'], $_POST['password']);
 if (count($verif->getArray()) > 0) {
     return header('Location:'.URL.'/login.php?error='.$verif->getIndexError(0).'&email='.$_POST['email']);
 }
-
 $_SESSION['id_user'] = $result[0]['id_user'];
 $_SESSION['nom']     = $result[0]['firstname'];
 $_SESSION['prenom']  = $result[0]['lastname'];
 $_SESSION['email']   = $_POST['email'];
 
 header('Location: '.URL.'/search.php'); 
-
 ?>

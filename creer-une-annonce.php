@@ -45,16 +45,14 @@ $result = $database->select($pdo, 'ville_id, ville_nom', 'villes_france','');
                       <?php 
                 echo $form->Input("6", "title", "Le titre", "text", "Entrer un  titre", $_GET['title'] ?? '');
                 echo $form->Input("6", "address", "L'adresse", "text", "Entrer une adresse", $_GET['address'] ??  '');
-                // ($size, $name, $label, $type, $placeholder, $value)
-                echo'<div class="col-5">
+            echo'<div class="col-5">
                 <label for="ville" class="form-label">La ville</label>
                 <select id="ville" name="ville" class="form-select">
                 
                 <option value="">Choisir la ville...</option>
                 ';
                 while($res = $result->fetch(PDO::FETCH_ASSOC)) {
-                    if(isset($_GET['ville']) && $res['ville_id'] == $_GET['ville'] ){}
-                    // echo'<option value="'.$res['ville_id'].'">'.$res['ville_nom'].'</option>';
+                  
                     echo'<option value="'.$res['ville_id'].'" '.($res['ville_id'] == $_GET['ville'] ? 'selected' : '' ).'>'.$res['ville_nom'].'</option>';
                 }
                 echo'</select>
@@ -71,15 +69,12 @@ $result = $database->select($pdo, 'ville_id, ville_nom', 'villes_france','');
                 ?>
                   </form>
 
-
                   </div>
                 </div>
 
              </div>
         </section>
-
     </main><!-- End #main -->
-
 <?php 
 require_once('composant/footer.php');
 ?>

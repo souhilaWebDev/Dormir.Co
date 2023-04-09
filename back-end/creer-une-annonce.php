@@ -27,7 +27,6 @@ if(!isset($_SESSION['id_user'])){
   $_SESSION['id_user'] = $result[0]['id_user'];
 }
 // enregistrer la demande
-
 $array = [
     $_POST['title'],
     $_POST['address'],
@@ -35,7 +34,6 @@ $array = [
     $_POST['price'],
     $_POST['phone'],
     htmlspecialchars($_POST['description']),
-    // $_POST['description'],
     $_SESSION['id_user']
 ];
 $database = new Database();
@@ -51,10 +49,3 @@ if ($insert == false) {
 if (count($verif->getArray()) > 0) {
    return header('Location: '.URL.'/voir-mes-annonces.php?msg='.$verif->getIndexError(0));
 }
-
-// header('Location: '.URL.'/search.php');
-
-// }else{
-//     header('Location: '.URL.'/index.php');
-// }
-// header('Location: '.URL.'/voir-annonce.php');

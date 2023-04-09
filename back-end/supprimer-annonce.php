@@ -4,7 +4,6 @@ require_once('../back-end/config.php');
 require_once('../class/database.php');
 require_once('../class/verification.php');
 
-
 $verif = new Verification();
 $database = new Database();
 // connexion bdd

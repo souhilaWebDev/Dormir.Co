@@ -7,7 +7,7 @@ require_once('../class/verification.php');
 // Vérifier si le formulaire a été envoyer
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
-    $verif = new Verification();
+$verif = new Verification();
    // Verification des inputs
 $verif->Texte($_POST['title'], 'title');
 $verif->Texte($_POST['address'], 'address');
@@ -15,7 +15,6 @@ $verif->Number($_POST['ville'], 'ville');
 $verif->Number($_POST['price'], 'price');
 $verif->Phone($_POST['phone']);
 $verif->Textelong($_POST['description'], 'description');
-
     
 if (count($verif->getArray()) > 0) {
     return header('Location: '.URL.'/edit-annonce.php?error='.$verif->getIndexError(0));
@@ -28,13 +27,10 @@ if(!isset($_SESSION['id_user'])){
     $result = $result->fetchAll();
     $_SESSION['id_user'] = $result[0]['id_user'];
   }  
-//   $desc = htmlspecialchars($_POST['description']);
+
     $champs_updated =[
         
         'title = \''.$_POST['title'].'\'',
-        // 'description = \''.htmlspecialchars($_POST['description']).'\'',
-
-        // addslashes(strip_tags($_POST['description']))
         'description = \''.addslashes(strip_tags($_POST['description'])).'\'',
         'price = '.$_POST['price'].'',
         'phone = \''.$_POST['phone'].'\'',
@@ -54,12 +50,10 @@ if(!isset($_SESSION['id_user'])){
         $verif->setArray(["L'annonce n'a pas pu être mise à jour"]);
     }
     
- 
     if (count($verif->getArray()) > 0) {
     return header('Location: '.URL.'/edit-annonce.php?error='.$verif->getIndexError(0));
     }
 
-    
     $verif->setArray(["Annonce mis à jour avec success"]);
     // Rediriger l'utilisateur vers la page de ses annonces
     header('Location:'.URL.'/voir-mes-annonces.php?msg='.$verif->getIndexError(0));
